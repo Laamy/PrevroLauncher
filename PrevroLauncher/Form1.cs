@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Net;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -66,8 +67,57 @@ namespace PrevroLauncher
                     case "ClientVersion":
                         curClientVersion.Text = ctn.Text;
                         break;
+                    case "ClientIcon":
+                        wb.DownloadFile(ctn.Name.Split('/')[1], "dt.png");
+                        curClientBanner.ImageLocation = Application.StartupPath + "dt.png";
+                        break;
                 }
             }
+        }
+
+        WebClient wb = new WebClient();
+
+        private void Form1_Load(object sender, EventArgs e)
+        { 
+            var rawCache = wb.DownloadString("https://raw.githubusercontent.com/Laamy/PrevroLauncher/master/PrevroLauncher/PrevroCache.txt");
+            var cachedClients = rawCache.Split('&');
+
+            foreach (string str in cachedClients)
+            {
+                var subClientCache = str.Split(',');
+
+                var btn = CloneableClientBtn.Clone(); // Create new instance of custom button
+
+                btn.Controls.Add(label3.Clone());
+                btn.Controls.Add(label4.Clone());
+
+                var iconCtrl = pictureBox1.Clone();
+                iconCtrl.Name = subClientCache[2];
+                btn.Controls.Add(iconCtrl);
+
+                foreach (Control ctn in btn.Controls)
+                {
+                    switch (ctn.Tag.ToString())
+                    {
+                        case "ClientName":
+                            ctn.Text = subClientCache[0];
+                            break;
+                        case "ClientVersion":
+                            ctn.Text = subClientCache[1];
+                            break;
+                    }
+                }
+
+                btn.MouseEnter += mouseEnter;
+                btn.MouseLeave += mouseLeave;
+                btn.Click += mousePress;
+
+                btn.Visible = true;
+
+                clientList.Controls.Add(btn);
+            }
+
+            CloneableClientBtn.Dispose();
         }
     }
 }
