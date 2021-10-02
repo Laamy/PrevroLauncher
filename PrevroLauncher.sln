@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31702.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrevroLauncher", "PrevroLauncher\PrevroLauncher.csproj", "{0999EE43-AEE0-43F5-A6DF-E9382282797B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0999EE43-AEE0-43F5-A6DF-E9382282797B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0999EE43-AEE0-43F5-A6DF-E9382282797B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0999EE43-AEE0-43F5-A6DF-E9382282797B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0999EE43-AEE0-43F5-A6DF-E9382282797B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8A9B89AA-ABF0-450E-B967-D0244998489E}
+	EndGlobalSection
+EndGlobal
