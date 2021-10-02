@@ -36,19 +36,19 @@ namespace PrevroLauncher
             this.CloneableClientBtn = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.curClientBanner = new System.Windows.Forms.PictureBox();
             this.curClientName = new System.Windows.Forms.Label();
             this.curClientVersion = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.curClientBanner = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel6.SuspendLayout();
             this.clientList.SuspendLayout();
             this.CloneableClientBtn.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.curClientBanner)).BeginInit();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.curClientBanner)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel6
@@ -145,16 +145,6 @@ namespace PrevroLauncher
             this.label3.TabIndex = 2;
             this.label3.Tag = "ClientName";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(40, 40);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Tag = "ClientIcon";
-            // 
             // panel7
             // 
             this.panel7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -164,18 +154,6 @@ namespace PrevroLauncher
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(482, 16);
             this.panel7.TabIndex = 7;
-            // 
-            // curClientBanner
-            // 
-            this.curClientBanner.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.curClientBanner.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.curClientBanner.Location = new System.Drawing.Point(0, 67);
-            this.curClientBanner.Name = "curClientBanner";
-            this.curClientBanner.Size = new System.Drawing.Size(498, 254);
-            this.curClientBanner.TabIndex = 4;
-            this.curClientBanner.TabStop = false;
             // 
             // curClientName
             // 
@@ -191,7 +169,8 @@ namespace PrevroLauncher
             // 
             // curClientVersion
             // 
-            this.curClientVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.curClientVersion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.curClientVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.curClientVersion.ForeColor = System.Drawing.SystemColors.Control;
             this.curClientVersion.Location = new System.Drawing.Point(149, 48);
@@ -229,6 +208,28 @@ namespace PrevroLauncher
             this.panel4.Size = new System.Drawing.Size(498, 392);
             this.panel4.TabIndex = 6;
             // 
+            // curClientBanner
+            // 
+            this.curClientBanner.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.curClientBanner.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.curClientBanner.Location = new System.Drawing.Point(0, 67);
+            this.curClientBanner.Name = "curClientBanner";
+            this.curClientBanner.Size = new System.Drawing.Size(498, 254);
+            this.curClientBanner.TabIndex = 4;
+            this.curClientBanner.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(40, 40);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Tag = "ClientIcon";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -252,9 +253,9 @@ namespace PrevroLauncher
             this.clientList.ResumeLayout(false);
             this.CloneableClientBtn.ResumeLayout(false);
             this.CloneableClientBtn.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.curClientBanner)).EndInit();
             this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.curClientBanner)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
