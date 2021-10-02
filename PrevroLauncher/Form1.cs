@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
 using System.Net;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -68,11 +69,14 @@ namespace PrevroLauncher
                         curClientVersion.Text = ctn.Text;
                         break;
                     case "ClientIcon":
-                        //MessageBox.Show(ctn.Name.Split(',')[1]);
 
-                        //wb.DownloadFile(ctn.Name.Split('/')[1], "dt.png");
+                        string url = ctn.Name.Split(',')[1];
 
-                        curClientBanner.ImageLocation = ctn.Name.Split('/')[1];
+                        wb.DownloadFile("https://raw.githubusercontent.com/Laamy/PrevroLauncher/master/PrevroLauncher/Resources/" + url, "data\\" + ran.Next(0, 24534) + ".png");
+
+                        curClientBanner.ImageLocation = "data\\" + ran.Next(0, 24534) + ".png";
+
+                        curClientBanner.BackgroundImageLayout = ImageLayout.Stretch;
 
                         break;
                 }
@@ -80,10 +84,14 @@ namespace PrevroLauncher
         }
 
         WebClient wb = new WebClient();
+        Random ran = new Random();
 
         private void Form1_Load(object sender, EventArgs e)
-        { 
+        {
+            Directory.CreateDirectory("data");
+
             var rawCache = wb.DownloadString("https://raw.githubusercontent.com/Laamy/PrevroLauncher/master/PrevroLauncher/PrevroCache.txt");
+            rawCache = rawCache.Replace("\r\n", "");
             var cachedClients = rawCache.Split('&');
 
             foreach (string str in cachedClients)
@@ -125,6 +133,11 @@ namespace PrevroLauncher
             }
 
             CloneableClientBtn.Dispose();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Directory.Delete("data", true);
         }
     }
 }

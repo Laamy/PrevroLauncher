@@ -252,6 +252,7 @@ namespace PrevroLauncher
             this.Name = "Form1";
             this.ShowIcon = false;
             this.Text = "Prevro";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel6.ResumeLayout(false);
             this.clientList.ResumeLayout(false);
