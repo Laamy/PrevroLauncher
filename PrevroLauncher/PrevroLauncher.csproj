@@ -89,5 +89,8 @@
   <ItemGroup>
     <None Include="Resources\Packet.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="PrevroCache.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
