@@ -68,8 +68,9 @@ namespace PrevroLauncher
                         curClientVersion.Text = ctn.Text;
                         break;
                     case "ClientIcon":
-                        wb.DownloadFile(ctn.Name.Split('/')[1], "dt.png");
-                        curClientBanner.ImageLocation = Application.StartupPath + "dt.png";
+                        MessageBox.Show(ctn.Name.Split(',')[1]);
+                        //wb.DownloadFile(ctn.Name.Split('/')[1], Application.StartupPath + "\\dt.png");
+                        //curClientBanner.ImageLocation = Application.StartupPath + "\\dt.png";
                         break;
                 }
             }
@@ -104,6 +105,9 @@ namespace PrevroLauncher
                             break;
                         case "ClientVersion":
                             ctn.Text = subClientCache[1];
+                            break;
+                        case "ClientIcon":
+                            ctn.Name = subClientCache[2] + "," + subClientCache[2];
                             break;
                     }
                 }
