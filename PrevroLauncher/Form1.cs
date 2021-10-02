@@ -112,6 +112,7 @@ namespace PrevroLauncher
                 btn.Controls.Add(label4.Clone());
 
                 var iconCtrl = pictureBox1.Clone();
+                iconCtrl.Name = subClientCache[2] + "," + subClientCache[3] + "," + subClientCache[4] + "," + subClientCache[5];
                 btn.Controls.Add(iconCtrl);
 
                 if (!File.Exists("data\\" + subClientCache[2]))
