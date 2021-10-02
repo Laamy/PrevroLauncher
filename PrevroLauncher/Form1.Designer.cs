@@ -129,10 +129,9 @@ namespace PrevroLauncher
             this.label4.ForeColor = System.Drawing.SystemColors.Control;
             this.label4.Location = new System.Drawing.Point(58, 33);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(63, 15);
+            this.label4.Size = new System.Drawing.Size(0, 15);
             this.label4.TabIndex = 3;
             this.label4.Tag = "ClientVersion";
-            this.label4.Text = "v1.17.32.1";
             // 
             // label3
             // 
@@ -142,14 +141,12 @@ namespace PrevroLauncher
             this.label3.ForeColor = System.Drawing.SystemColors.Control;
             this.label3.Location = new System.Drawing.Point(58, 15);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 20);
+            this.label3.Size = new System.Drawing.Size(0, 20);
             this.label3.TabIndex = 2;
             this.label3.Tag = "ClientName";
-            this.label3.Text = "Trero";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::PrevroLauncher.Properties.Resources.TreroBackground1;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
@@ -173,7 +170,6 @@ namespace PrevroLauncher
             this.curClientBanner.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.curClientBanner.BackgroundImage = global::PrevroLauncher.Properties.Resources.Polish_20210919_055658411;
             this.curClientBanner.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.curClientBanner.Location = new System.Drawing.Point(0, 67);
             this.curClientBanner.Name = "curClientBanner";
@@ -191,7 +187,6 @@ namespace PrevroLauncher
             this.curClientName.Name = "curClientName";
             this.curClientName.Size = new System.Drawing.Size(211, 29);
             this.curClientName.TabIndex = 0;
-            this.curClientName.Text = "Trero";
             this.curClientName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // curClientVersion
@@ -203,7 +198,6 @@ namespace PrevroLauncher
             this.curClientVersion.Name = "curClientVersion";
             this.curClientVersion.Size = new System.Drawing.Size(209, 16);
             this.curClientVersion.TabIndex = 1;
-            this.curClientVersion.Text = "v1.17.32.1";
             this.curClientVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // button1

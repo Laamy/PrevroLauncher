@@ -91,6 +91,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="PrevroCache.txt" />
+    <Content Include="Resources\packetBackground.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

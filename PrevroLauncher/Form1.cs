@@ -89,7 +89,7 @@ namespace PrevroLauncher
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Directory.Delete("data", true);
+            //Directory.Delete("data", true);
             Directory.CreateDirectory("data");
 
             var rawCache = wb.DownloadString("https://raw.githubusercontent.com/Laamy/PrevroLauncher/master/PrevroLauncher/PrevroCache.txt");
@@ -105,8 +105,11 @@ namespace PrevroLauncher
                 btn.Controls.Add(label4.Clone());
 
                 var iconCtrl = pictureBox1.Clone();
-                iconCtrl.Name = subClientCache[2];
+                iconCtrl.Name = subClientCache[2] + "," + subClientCache[3];
                 btn.Controls.Add(iconCtrl);
+
+                if (!File.Exists("data\\" + subClientCache[2]))
+                    wb.DownloadFile("https://raw.githubusercontent.com/Laamy/PrevroLauncher/master/PrevroLauncher/Resources/" + subClientCache[2], "data\\" + subClientCache[2]);
 
                 foreach (Control ctn in btn.Controls)
                 {
@@ -119,7 +122,8 @@ namespace PrevroLauncher
                             ctn.Text = subClientCache[1];
                             break;
                         case "ClientIcon":
-                            ctn.Name = subClientCache[2] + "," + subClientCache[2];
+                            var newCtn = (PictureBox)ctn;
+                            newCtn.BackgroundImage = Image.FromFile("data\\" + subClientCache[2]);
                             break;
                     }
                 }
