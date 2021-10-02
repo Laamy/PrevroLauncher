@@ -30,6 +30,8 @@ namespace PrevroLauncher
         private void InitializeComponent()
         {
             this.panel6 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
@@ -44,13 +46,11 @@ namespace PrevroLauncher
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.curClientBanner = new System.Windows.Forms.PictureBox();
             this.curClientName = new System.Windows.Forms.Label();
             this.curClientVersion = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.panel6.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -59,7 +59,7 @@ namespace PrevroLauncher
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.curClientBanner)).BeginInit();
             this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -74,6 +74,38 @@ namespace PrevroLauncher
             this.panel6.Size = new System.Drawing.Size(700, 24);
             this.panel6.TabIndex = 4;
             this.panel6.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel6_MouseMove);
+            // 
+            // label8
+            // 
+            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.label8.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(664, 0);
+            this.label8.Name = "label8";
+            this.label8.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label8.Size = new System.Drawing.Size(18, 24);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "_";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label8.Click += new System.EventHandler(this.label8_Click);
+            this.label8.MouseEnter += new System.EventHandler(this.label8_MouseEnter);
+            this.label8.MouseLeave += new System.EventHandler(this.label8_MouseLeave);
+            // 
+            // label7
+            // 
+            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.label7.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(682, 0);
+            this.label7.Name = "label7";
+            this.label7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label7.Size = new System.Drawing.Size(18, 24);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "X";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label7.Click += new System.EventHandler(this.label7_Click);
+            this.label7.MouseEnter += new System.EventHandler(this.label8_MouseEnter);
+            this.label7.MouseLeave += new System.EventHandler(this.label8_MouseLeave);
             // 
             // panel1
             // 
@@ -93,11 +125,15 @@ namespace PrevroLauncher
             this.panel5.Controls.Add(this.label5);
             this.panel5.Controls.Add(this.label6);
             this.panel5.Controls.Add(this.pictureBox4);
+            this.panel5.Cursor = System.Windows.Forms.Cursors.Default;
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 130);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(202, 65);
             this.panel5.TabIndex = 3;
+            this.panel5.Click += new System.EventHandler(this.mousePress);
+            this.panel5.MouseEnter += new System.EventHandler(this.mouseEnter);
+            this.panel5.MouseLeave += new System.EventHandler(this.mouseLeave);
             // 
             // label5
             // 
@@ -108,6 +144,7 @@ namespace PrevroLauncher
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 15);
             this.label5.TabIndex = 3;
+            this.label5.Tag = "ClientVersion";
             this.label5.Text = "v1.17.11";
             // 
             // label6
@@ -119,6 +156,7 @@ namespace PrevroLauncher
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(58, 20);
             this.label6.TabIndex = 2;
+            this.label6.Tag = "ClientName";
             this.label6.Text = "Packet";
             // 
             // pictureBox4
@@ -130,6 +168,7 @@ namespace PrevroLauncher
             this.pictureBox4.Size = new System.Drawing.Size(40, 40);
             this.pictureBox4.TabIndex = 2;
             this.pictureBox4.TabStop = false;
+            this.pictureBox4.Tag = "ClientIcon";
             // 
             // panel2
             // 
@@ -137,11 +176,15 @@ namespace PrevroLauncher
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.pictureBox3);
+            this.panel2.Cursor = System.Windows.Forms.Cursors.Default;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 65);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(202, 65);
             this.panel2.TabIndex = 2;
+            this.panel2.Click += new System.EventHandler(this.mousePress);
+            this.panel2.MouseEnter += new System.EventHandler(this.mouseEnter);
+            this.panel2.MouseLeave += new System.EventHandler(this.mouseLeave);
             // 
             // label1
             // 
@@ -152,6 +195,7 @@ namespace PrevroLauncher
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(63, 15);
             this.label1.TabIndex = 3;
+            this.label1.Tag = "ClientVersion";
             this.label1.Text = "v1.17.30.7";
             // 
             // label2
@@ -163,6 +207,7 @@ namespace PrevroLauncher
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(46, 20);
             this.label2.TabIndex = 2;
+            this.label2.Tag = "ClientName";
             this.label2.Text = "Trero";
             // 
             // pictureBox3
@@ -174,18 +219,23 @@ namespace PrevroLauncher
             this.pictureBox3.Size = new System.Drawing.Size(40, 40);
             this.pictureBox3.TabIndex = 2;
             this.pictureBox3.TabStop = false;
+            this.pictureBox3.Tag = "ClientIcon";
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.pictureBox1);
+            this.panel3.Cursor = System.Windows.Forms.Cursors.Default;
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(202, 65);
             this.panel3.TabIndex = 1;
+            this.panel3.Click += new System.EventHandler(this.mousePress);
+            this.panel3.MouseEnter += new System.EventHandler(this.mouseEnter);
+            this.panel3.MouseLeave += new System.EventHandler(this.mouseLeave);
             // 
             // label4
             // 
@@ -196,6 +246,7 @@ namespace PrevroLauncher
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(63, 15);
             this.label4.TabIndex = 3;
+            this.label4.Tag = "ClientVersion";
             this.label4.Text = "v1.17.32.1";
             // 
             // label3
@@ -207,6 +258,7 @@ namespace PrevroLauncher
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(46, 20);
             this.label3.TabIndex = 2;
+            this.label3.Tag = "ClientName";
             this.label3.Text = "Trero";
             // 
             // pictureBox1
@@ -218,6 +270,7 @@ namespace PrevroLauncher
             this.pictureBox1.Size = new System.Drawing.Size(40, 40);
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Tag = "ClientIcon";
             // 
             // panel7
             // 
@@ -229,42 +282,43 @@ namespace PrevroLauncher
             this.panel7.Size = new System.Drawing.Size(482, 16);
             this.panel7.TabIndex = 7;
             // 
-            // pictureBox2
+            // curClientBanner
             // 
-            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.curClientBanner.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox2.BackgroundImage = global::PrevroLauncher.Properties.Resources.Polish_20210919_055658411;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 67);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(498, 254);
-            this.pictureBox2.TabIndex = 4;
-            this.pictureBox2.TabStop = false;
+            this.curClientBanner.BackgroundImage = global::PrevroLauncher.Properties.Resources.Polish_20210919_055658411;
+            this.curClientBanner.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.curClientBanner.Location = new System.Drawing.Point(0, 67);
+            this.curClientBanner.Name = "curClientBanner";
+            this.curClientBanner.Size = new System.Drawing.Size(498, 254);
+            this.curClientBanner.TabIndex = 4;
+            this.curClientBanner.TabStop = false;
             // 
             // curClientName
             // 
-            this.curClientName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.curClientName.AutoSize = true;
+            this.curClientName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.curClientName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.curClientName.ForeColor = System.Drawing.SystemColors.Control;
-            this.curClientName.Location = new System.Drawing.Point(214, 22);
+            this.curClientName.Location = new System.Drawing.Point(147, 22);
             this.curClientName.Name = "curClientName";
-            this.curClientName.Size = new System.Drawing.Size(73, 29);
+            this.curClientName.Size = new System.Drawing.Size(211, 29);
             this.curClientName.TabIndex = 0;
             this.curClientName.Text = "Trero";
+            this.curClientName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // curClientVersion
             // 
             this.curClientVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.curClientVersion.AutoSize = true;
             this.curClientVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.curClientVersion.ForeColor = System.Drawing.SystemColors.Control;
-            this.curClientVersion.Location = new System.Drawing.Point(220, 51);
+            this.curClientVersion.Location = new System.Drawing.Point(149, 48);
             this.curClientVersion.Name = "curClientVersion";
-            this.curClientVersion.Size = new System.Drawing.Size(66, 16);
+            this.curClientVersion.Size = new System.Drawing.Size(209, 16);
             this.curClientVersion.TabIndex = 1;
             this.curClientVersion.Text = "v1.17.32.1";
+            this.curClientVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // button1
             // 
@@ -289,43 +343,11 @@ namespace PrevroLauncher
             this.panel4.Controls.Add(this.button1);
             this.panel4.Controls.Add(this.curClientVersion);
             this.panel4.Controls.Add(this.curClientName);
-            this.panel4.Controls.Add(this.pictureBox2);
+            this.panel4.Controls.Add(this.curClientBanner);
             this.panel4.Location = new System.Drawing.Point(202, 24);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(498, 392);
             this.panel4.TabIndex = 6;
-            // 
-            // label7
-            // 
-            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.label7.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(682, 0);
-            this.label7.Name = "label7";
-            this.label7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label7.Size = new System.Drawing.Size(18, 24);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "X";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label7.Click += new System.EventHandler(this.label7_Click);
-            this.label7.MouseEnter += new System.EventHandler(this.label8_MouseEnter);
-            this.label7.MouseLeave += new System.EventHandler(this.label8_MouseLeave);
-            // 
-            // label8
-            // 
-            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.label8.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(664, 0);
-            this.label8.Name = "label8";
-            this.label8.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label8.Size = new System.Drawing.Size(18, 24);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "_";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label8.Click += new System.EventHandler(this.label8_Click);
-            this.label8.MouseEnter += new System.EventHandler(this.label8_MouseEnter);
-            this.label8.MouseLeave += new System.EventHandler(this.label8_MouseLeave);
             // 
             // Form1
             // 
@@ -337,6 +359,7 @@ namespace PrevroLauncher
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel6);
+            this.Cursor = System.Windows.Forms.Cursors.Default;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximumSize = new System.Drawing.Size(900, 532);
             this.MinimumSize = new System.Drawing.Size(700, 432);
@@ -354,9 +377,8 @@ namespace PrevroLauncher
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.curClientBanner)).EndInit();
             this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -378,7 +400,7 @@ namespace PrevroLauncher
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox curClientBanner;
         private System.Windows.Forms.Label curClientName;
         private System.Windows.Forms.Label curClientVersion;
         private System.Windows.Forms.Button button1;

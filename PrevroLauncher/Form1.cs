@@ -50,5 +50,24 @@ namespace PrevroLauncher
 
         private void label7_Click(object sender, EventArgs e) => Application.Exit();
         private void label8_Click(object sender, EventArgs e) => WindowState = FormWindowState.Minimized;
+
+        private void mouseEnter(object sender, EventArgs e) => ((Panel)sender).BackColor = Color.FromArgb(255, 46, 46, 46);
+        private void mouseLeave(object sender, EventArgs e) => ((Panel)sender).BackColor = Color.FromArgb(255, 38, 38, 38);
+        private void mousePress(object sender, EventArgs e)
+        {
+            var pan = (Panel)sender;
+            foreach (Control ctn in pan.Controls)
+            {
+                switch (ctn.Tag.ToString())
+                {
+                    case "ClientName":
+                        curClientName.Text = ctn.Text;
+                        break;
+                    case "ClientVersion":
+                        curClientVersion.Text = ctn.Text;
+                        break;
+                }
+            }
+        }
     }
 }
