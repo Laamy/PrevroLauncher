@@ -72,9 +72,11 @@ namespace PrevroLauncher
 
                         string url = ctn.Name.Split(',')[1];
 
-                        wb.DownloadFile(url, "data\\" + ran.Next(0, 24534) + ".png");
+                        string cra = $"{ran.Next(0, 24534)}";
 
-                        curClientBanner.ImageLocation = "data\\" + ran.Next(0, 24534) + ".png";
+                        wb.DownloadFile("https://raw.githubusercontent.com/Laamy/PrevroLauncher/master/PrevroLauncher/Resources/" + url, "data\\" + cra + ".png");
+
+                        curClientBanner.ImageLocation = "data\\" + cra + ".png";
 
                         curClientBanner.BackgroundImageLayout = ImageLayout.Stretch;
 
