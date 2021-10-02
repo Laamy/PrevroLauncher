@@ -91,7 +91,6 @@ namespace PrevroLauncher
             Directory.CreateDirectory("data");
 
             var rawCache = wb.DownloadString("https://raw.githubusercontent.com/Laamy/PrevroLauncher/master/PrevroLauncher/PrevroCache.txt");
-            rawCache = rawCache.Replace("\r\n", "");
             var cachedClients = rawCache.Split('&');
 
             foreach (string str in cachedClients)
