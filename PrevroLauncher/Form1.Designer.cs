@@ -41,6 +41,7 @@ namespace PrevroLauncher
             this.curClientVersion = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.discordData = new System.Windows.Forms.Button();
             this.curClientBanner = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel6.SuspendLayout();
@@ -186,7 +187,7 @@ namespace PrevroLauncher
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Font = new System.Drawing.Font("Sylfaen", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(224)))), ((int)(((byte)(221)))));
-            this.button1.Location = new System.Drawing.Point(157, 292);
+            this.button1.Location = new System.Drawing.Point(100, 293);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(191, 54);
             this.button1.TabIndex = 2;
@@ -200,6 +201,7 @@ namespace PrevroLauncher
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.panel4.Controls.Add(this.discordData);
             this.panel4.Controls.Add(this.button1);
             this.panel4.Controls.Add(this.curClientVersion);
             this.panel4.Controls.Add(this.curClientName);
@@ -208,6 +210,21 @@ namespace PrevroLauncher
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(498, 392);
             this.panel4.TabIndex = 6;
+            // 
+            // discordData
+            // 
+            this.discordData.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.discordData.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.discordData.Font = new System.Drawing.Font("Sylfaen", 16F);
+            this.discordData.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(224)))), ((int)(((byte)(221)))));
+            this.discordData.Location = new System.Drawing.Point(297, 293);
+            this.discordData.Name = "discordData";
+            this.discordData.Size = new System.Drawing.Size(54, 54);
+            this.discordData.TabIndex = 5;
+            this.discordData.Tag = "discord.gg/";
+            this.discordData.Text = ".gg";
+            this.discordData.UseVisualStyleBackColor = false;
+            this.discordData.Click += new System.EventHandler(this.discordData_Click);
             // 
             // curClientBanner
             // 
@@ -277,6 +294,7 @@ namespace PrevroLauncher
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button discordData;
     }
 }
 

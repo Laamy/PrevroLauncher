@@ -76,11 +76,13 @@ namespace PrevroLauncher
                         string cra = $"{url[1]}";
 
                         if (!File.Exists("data\\" + cra))
-                            wb.DownloadFile("https://raw.githubusercontent.com/Laamy/PrevroLauncher/master/PrevroLauncher/Resources/" + url, "data\\" + cra);
+                            wb.DownloadFile("https://raw.githubusercontent.com/Laamy/PrevroLauncher/master/PrevroLauncher/Resources/" + cra, "data\\" + cra);
 
                         curClientBanner.BackgroundImage = Image.FromFile("data\\" + cra);
 
                         curClientBanner.Tag = url[2];
+
+                        discordData.Tag = url[3];
 
                         curClientName.Name = curClientName.Text + ".exe";
 
@@ -110,7 +112,6 @@ namespace PrevroLauncher
                 btn.Controls.Add(label4.Clone());
 
                 var iconCtrl = pictureBox1.Clone();
-                iconCtrl.Name = subClientCache[2] + "," + subClientCache[3] + "," + subClientCache[4];
                 btn.Controls.Add(iconCtrl);
 
                 if (!File.Exists("data\\" + subClientCache[2]))
@@ -160,6 +161,13 @@ namespace PrevroLauncher
                 Process.Start("data\\" + curClientName.Name);
             }
             catch { }
+        }
+
+        private void discordData_Click(object sender, EventArgs e)
+        {
+            var discordLink = ((Button)sender).Tag.ToString();
+            Clipboard.SetText(discordLink);
+            MessageBox.Show(discordLink, "Copied to clipboard!");
         }
     }
 }
