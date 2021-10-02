@@ -72,13 +72,12 @@ namespace PrevroLauncher
 
                         string url = ctn.Name.Split(',')[1];
 
-                        string cra = $"{ran.Next(0, 24534)}";
+                        string cra = $"{url}";
 
-                        wb.DownloadFile("https://raw.githubusercontent.com/Laamy/PrevroLauncher/master/PrevroLauncher/Resources/" + url, "data\\" + cra + ".png");
+                        if (!File.Exists("data\\" + cra))
+                            wb.DownloadFile("https://raw.githubusercontent.com/Laamy/PrevroLauncher/master/PrevroLauncher/Resources/" + url, "data\\" + cra);
 
-                        curClientBanner.ImageLocation = "data\\" + cra + ".png";
-
-                        curClientBanner.BackgroundImageLayout = ImageLayout.Stretch;
+                        curClientBanner.BackgroundImage = Image.FromFile("data\\" + cra);
 
                         break;
                 }
@@ -90,6 +89,7 @@ namespace PrevroLauncher
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            Directory.Delete("data", true);
             Directory.CreateDirectory("data");
 
             var rawCache = wb.DownloadString("https://raw.githubusercontent.com/Laamy/PrevroLauncher/master/PrevroLauncher/PrevroCache.txt");
@@ -138,7 +138,6 @@ namespace PrevroLauncher
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Directory.Delete("data", true);
         }
     }
 }

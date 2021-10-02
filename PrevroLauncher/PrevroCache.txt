@@ -1,1 +1,3 @@
-﻿Client,0.0.0.0,Packet.png,Packet.png&Trero,1.17.32.1,Packet.png,Packet.png
+﻿Packet Client,1.17.11.1,Packet.png,Packet.png,isNull
+
+&Trero,1.17.32.1,TreroBackground1.png,Polish_20210919_055658411.png,https://github.com/Laamy/Trero/releases/download/1.17.32.1/TreroUtility.exe
