@@ -36,6 +36,7 @@ namespace PrevroLauncher
             this.CloneableClientBtn = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.curClientName = new System.Windows.Forms.Label();
             this.curClientVersion = new System.Windows.Forms.Label();
@@ -43,13 +44,12 @@ namespace PrevroLauncher
             this.panel4 = new System.Windows.Forms.Panel();
             this.discordData = new System.Windows.Forms.Button();
             this.curClientBanner = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel6.SuspendLayout();
             this.clientList.SuspendLayout();
             this.CloneableClientBtn.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.curClientBanner)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel6
@@ -133,6 +133,9 @@ namespace PrevroLauncher
             this.label4.Size = new System.Drawing.Size(0, 15);
             this.label4.TabIndex = 3;
             this.label4.Tag = "ClientVersion";
+            this.label4.Click += new System.EventHandler(this.subMousePress);
+            this.label4.MouseEnter += new System.EventHandler(this.subMouseEnter);
+            this.label4.MouseLeave += new System.EventHandler(this.subMouseLeave);
             // 
             // label3
             // 
@@ -145,6 +148,22 @@ namespace PrevroLauncher
             this.label3.Size = new System.Drawing.Size(0, 20);
             this.label3.TabIndex = 2;
             this.label3.Tag = "ClientName";
+            this.label3.Click += new System.EventHandler(this.subMousePress);
+            this.label3.MouseEnter += new System.EventHandler(this.subMouseEnter);
+            this.label3.MouseLeave += new System.EventHandler(this.subMouseLeave);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(40, 40);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Tag = "ClientIcon";
+            this.pictureBox1.Click += new System.EventHandler(this.subMousePress);
+            this.pictureBox1.MouseEnter += new System.EventHandler(this.subMouseEnter);
+            this.pictureBox1.MouseLeave += new System.EventHandler(this.subMouseLeave);
             // 
             // panel7
             // 
@@ -238,16 +257,6 @@ namespace PrevroLauncher
             this.curClientBanner.TabIndex = 4;
             this.curClientBanner.TabStop = false;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(40, 40);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Tag = "ClientIcon";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -271,9 +280,9 @@ namespace PrevroLauncher
             this.clientList.ResumeLayout(false);
             this.CloneableClientBtn.ResumeLayout(false);
             this.CloneableClientBtn.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.curClientBanner)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

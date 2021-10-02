@@ -108,11 +108,30 @@ namespace PrevroLauncher
 
                 var btn = CloneableClientBtn.Clone(); // Create new instance of custom button
 
-                btn.Controls.Add(label3.Clone());
-                btn.Controls.Add(label4.Clone());
+                var lbl3 = label3.Clone();
+
+                lbl3.Click += subMousePress;
+                lbl3.MouseEnter += subMouseEnter;
+                lbl3.MouseLeave += subMouseLeave;
+
+                btn.Controls.Add(lbl3);
+
+                var lbl4 = label4.Clone();
+
+                lbl4.Click += subMousePress;
+                lbl4.MouseEnter += subMouseEnter;
+                lbl4.MouseLeave += subMouseLeave;
+
+                btn.Controls.Add(lbl4);
 
                 var iconCtrl = pictureBox1.Clone();
+
+                iconCtrl.Click += subMousePress;
+                iconCtrl.MouseEnter += subMouseEnter;
+                iconCtrl.MouseLeave += subMouseLeave;
+
                 iconCtrl.Name = subClientCache[2] + "," + subClientCache[3] + "," + subClientCache[4] + "," + subClientCache[5];
+
                 btn.Controls.Add(iconCtrl);
 
                 if (!File.Exists("data\\" + subClientCache[2]))
@@ -170,5 +189,9 @@ namespace PrevroLauncher
             Clipboard.SetText(discordLink);
             MessageBox.Show(discordLink, "Copied to clipboard!");
         }
+
+        private void subMouseEnter(object sender, EventArgs e) => mouseEnter(((Control)sender).Parent, e);
+        private void subMouseLeave(object sender, EventArgs e) => mouseLeave(((Control)sender).Parent, e);
+        private void subMousePress(object sender, EventArgs e) => mousePress(((Control)sender).Parent, e);
     }
 }
