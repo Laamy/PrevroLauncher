@@ -1,1 +1,1 @@
-﻿vClient,0.0.0.0,Packet.png,Packet.png&vTrero,1.17.32.1,Packet.png,Packet.png
+﻿Client,0.0.0.0,https://raw.githubusercontent.com/Laamy/PrevroLauncher/master/PrevroLauncher/Resources/,https://raw.githubusercontent.com/Laamy/PrevroLauncher/master/PrevroLauncher/Resources/&Trero,1.17.32.1,https://raw.githubusercontent.com/Laamy/PrevroLauncher/master/PrevroLauncher/Resources/,https://raw.githubusercontent.com/Laamy/PrevroLauncher/master/PrevroLauncher/Resources/
