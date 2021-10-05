@@ -4,6 +4,9 @@ using System.Drawing;
 using System.IO;
 using System.Net;
 using System.Runtime.InteropServices;
+using System.Security.AccessControl;
+using System.Security.Principal;
+using System.Text;
 using System.Windows.Forms;
 
 namespace PrevroLauncher
@@ -12,6 +15,12 @@ namespace PrevroLauncher
     {
         [DllImport("user32.dll")] static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [DllImport("user32.dll")] static extern bool ReleaseCapture();
+        [DllImport("kernel32.dll")] public static extern IntPtr OpenProcess(int dwDesiredAccess, bool bInheritHandle, int dwProcessId);
+        [DllImport("kernel32.dll", CharSet = CharSet.Auto)] public static extern IntPtr GetModuleHandle(string lpModuleName);
+        [DllImport("kernel32", CharSet = CharSet.Ansi, ExactSpelling = true, SetLastError = true)] static extern IntPtr GetProcAddress(IntPtr hModule, string procName);
+        [DllImport("kernel32.dll", SetLastError = true, ExactSpelling = true)] static extern IntPtr VirtualAllocEx(IntPtr hProcess, IntPtr lpAddress, uint dwSize, uint flAllocationType, uint flProtect);
+        [DllImport("kernel32.dll", SetLastError = true)] static extern bool WriteProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress, byte[] lpBuffer, uint nSize, out UIntPtr lpNumberOfBytesWritten);
+        [DllImport("kernel32.dll")] static extern IntPtr CreateRemoteThread(IntPtr hProcess, IntPtr lpThreadAttributes, uint dwStackSize, IntPtr lpStartAddress, IntPtr lpParameter, uint dwCreationFlags, IntPtr lpThreadId);
 
         public Form1() => InitializeComponent();
         protected override void WndProc(ref Message m)
@@ -178,7 +187,10 @@ namespace PrevroLauncher
             try
             {
                 wb.DownloadFile(curClientBanner.Tag.ToString(), "data\\" + curClientName.Name);
-                Process.Start("data\\" + curClientName.Name);
+                if (curClientName.Name.EndsWith(".exe"))
+                    Process.Start("data\\" + curClientName.Name);
+                else if (curClientName.Name.EndsWith(".dll"))
+                    InjectDLL("data\\" + curClientName.Name);
             }
             catch { }
         }
@@ -193,5 +205,38 @@ namespace PrevroLauncher
         private void subMouseEnter(object sender, EventArgs e) => mouseEnter(((Control)sender).Parent, e);
         private void subMouseLeave(object sender, EventArgs e) => mouseLeave(((Control)sender).Parent, e);
         private void subMousePress(object sender, EventArgs e) => mousePress(((Control)sender).Parent, e);
+
+        public static void InjectDLL(string DLLPath) // Echos dll injection method
+        {
+            Process.Start("minecraft://");
+
+            Process[] targetProcessIndex = Process.GetProcessesByName("Minecraft.Windows");
+
+            if (targetProcessIndex.Length > 0)
+            {
+                applyAppPackages(DLLPath);
+
+                Process targetProcess = Process.GetProcessesByName("Minecraft.Windows")[0];
+                IntPtr procHandle = OpenProcess(0x0002 | 0x0400 | 0x0008 | 0x0020 | 0x0010, false, targetProcess.Id);
+
+                IntPtr loadLibraryAddr = GetProcAddress(GetModuleHandle("kernel32.dll"), "LoadLibraryA");
+
+                IntPtr allocMemAddress = VirtualAllocEx(procHandle, IntPtr.Zero, (uint)((DLLPath.Length + 1) * Marshal.SizeOf(typeof(char))), 0x00001000 | 0x00002000, 4);
+
+                UIntPtr bytesWritten;
+                WriteProcessMemory(procHandle, allocMemAddress, Encoding.Default.GetBytes(DLLPath), (uint)((DLLPath.Length + 1) * Marshal.SizeOf(typeof(char))), out bytesWritten);
+                CreateRemoteThread(procHandle, IntPtr.Zero, 0, loadLibraryAddr, allocMemAddress, 0, IntPtr.Zero);
+
+                MessageBox.Show("Injected!");
+            }
+        }
+
+        public static void applyAppPackages(string DLLPath)
+        {
+            FileInfo InfoFile = new FileInfo(DLLPath);
+            FileSecurity fSecurity = InfoFile.GetAccessControl();
+            fSecurity.AddAccessRule(new FileSystemAccessRule(new SecurityIdentifier("S-1-15-2-1"), FileSystemRights.FullControl, InheritanceFlags.None, PropagationFlags.NoPropagateInherit, AccessControlType.Allow));
+            InfoFile.SetAccessControl(fSecurity);
+        }
     }
 }

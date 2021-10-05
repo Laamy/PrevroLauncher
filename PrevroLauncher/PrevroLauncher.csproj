@@ -92,6 +92,7 @@
   <ItemGroup>
     <Content Include="PrevroCache.txt" />
     <Content Include="Resources\packetBackground.png" />
+    <Content Include="Resources\TreroInternal.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
